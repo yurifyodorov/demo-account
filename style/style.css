@@ -1,13 +1,247 @@
+@font-face {
+  font-family: 'Gotham Pro Light';
+  src: url("/fonts/GothamPro-Light.eot");
+  src: url("/fonts/GothamPro-Light.eot?#iefix") format("embedded-opentype"), url("/fonts/GothamPro-Light.woff") format("woff"), url("/fonts/GothamPro-Light.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham Pro Bold';
+  src: url("/fonts/GothamPro-Bold.eot");
+  src: url("/fonts/.eot?#iefix") format("embedded-opentype"), url("/fonts/GothamPro-Bold.woff") format("woff"), url("/fonts/GothamPro-Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans Regular';
+  src: url("/fonts/OpenSans-Regular.eot");
+  src: url("/fonts/OpenSans-Regular.eot?#iefix") format("embedded-opentype"), url("/fonts/OpenSans-Regular.woff") format("woff"), url("/fonts/OpenSans-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans Bold';
+  src: url("/fonts/OpenSans-Bold.eot");
+  src: url("/fonts/OpenSans-Bold.eot?#iefix") format("embedded-opentype"), url("/fonts/OpenSans-Bold.woff") format("woff"), url("/fonts/OpenSans-Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   margin: 0;
 }
 
-header {
-  background-color: yellow;
-  height: 800px;
+h1 {
+  font-family: 'Gotham Pro Light';
+  text-transform: uppercase;
+  width: 550px;
+  z-index: 99;
+}
+
+h1 span {
+  font-family: 'Gotham Pro Bold';
+}
+
+h2 {
+  font-family: 'Gotham Pro Light';
+  font-size: 2em;
+  margin: 0;
+}
+
+h2 span {
+  font-family: 'Gotham Pro Bold';
+}
+
+p {
+  font-family: 'Open Sans Regular';
+  z-index: 99;
+  margin: 50px 0;
+}
+
+header,
+section,
+footer {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0 calc(50vw - 1170px / 2);
 }
 
 section {
-  border-bottom: 1px solid black;
+  position: relative;
+  padding-top: 10%;
+  padding-bottom: 10%;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-image: url("../img/background-header-large.jpg");
+  background-size: cover;
+  height: 985px;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: white;
+}
+
+.logo {
+  display: block;
+  margin-top: 100px;
+  margin-bottom: 150px;
+  z-index: 99;
+}
+
+/* buttons */
+button {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 10px 30px;
+  border-radius: 22.45px;
+  border: none;
+  background-color: #aa4599;
+  -webkit-box-shadow: 0 0 25px #e393d4;
+          box-shadow: 0 0 25px #e393d4;
+  font-family: 'Open Sans Bold';
+  font-size: 16px;
+  text-transform: uppercase;
+  color: white;
+  z-index: 99;
+}
+
+/* sections */
+section:nth-child(2) {
+  height: 700px;
+}
+
+section:nth-child(2) h2 {
+  width: 200px;
+  position: relative;
+}
+
+section:nth-child(2) h2::before {
+  content: 'for beginner traders';
+  color: #854399;
+  opacity: 0.5;
+  position: absolute;
+  top: -30px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+section:nth-child(2) p {
+  width: 410px;
+}
+
+section:nth-child(2) img {
+  position: absolute;
+  width: 500px;
+  top: 20%;
+  right: 20%;
+}
+
+section:nth-child(3) {
+  height: 700px;
+  text-align: center;
+}
+
+section:nth-child(3) .grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 100px;
+  margin-top: 100px;
+}
+
+section:nth-child(3) .grid div {
+  width: 175px;
+}
+
+section:nth-child(3) .grid div p {
+  margin: 20px 0;
+}
+
+section:nth-child(4) {
+  height: 700px;
+  padding-bottom: 200px;
+}
+
+section:nth-child(4) h2 {
+  width: 200px;
+  position: relative;
+}
+
+section:nth-child(4) h2::before {
+  content: 'for beginner traders';
+  color: #854399;
+  opacity: 0.5;
+  position: absolute;
+  top: -30px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+section:nth-child(4) p {
+  width: 410px;
+}
+
+section:nth-child(4) img {
+  position: absolute;
+  width: 500px;
+  top: 20%;
+  right: 20%;
+}
+
+@media (max-width: 1170px) {
+  header,
+  section,
+  footer {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding-right: 10%;
+    padding-left: 10%;
+  }
+  .header {
+    background-image: url("../img/background-header-medium.jpg");
+  }
+  .header h1 {
+    width: 100%;
+    max-width: 550px;
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    background-image: url("../img/background-header-small.jpg");
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    text-align: center;
+    position: relative;
+  }
+  .header:after {
+    content: '';
+    display: block;
+    background: black;
+    opacity: 0.3;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
 }
 /*# sourceMappingURL=style.css.map */
