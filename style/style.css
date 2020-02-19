@@ -54,6 +54,7 @@ h1 {
   font-family: 'Gotham Pro Light';
   text-transform: uppercase;
   font-size: 2.5em;
+  z-index: 99;
 }
 
 h1 span {
@@ -66,6 +67,7 @@ h2 {
   margin: 0;
   position: relative;
   font-size: 2em;
+  z-index: 99;
 }
 
 h2 span {
@@ -108,6 +110,7 @@ button {
       -ms-flex-pack: justify;
           justify-content: space-between;
   height: 100vh;
+  padding-bottom: 40px;
   background-image: url("../img/background-header-large.jpg");
   background-size: cover;
   background-position: center;
@@ -126,7 +129,6 @@ button {
 .header__description {
   width: 550px;
   height: 60%;
-  z-index: 99;
 }
 
 /* sections */
@@ -150,18 +152,18 @@ button {
 }
 
 .section__description {
-  max-width: 35%;
+  max-width: 40%;
 }
 
 .section__image {
-  max-width: 45%;
+  max-width: 40%;
 }
 
 section h2::before {
   color: #854399;
   opacity: 0.5;
   position: absolute;
-  top: -30px;
+  top: -20px;
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -192,7 +194,7 @@ section h2::before {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-top: 30px;
+  margin-top: 50px;
 }
 
 .section-2 .item {
@@ -221,26 +223,29 @@ section h2::before {
 }
 
 @media (max-width: 600px) {
+  h1 {
+    font-size: 1.5em;
+  }
+  h2 {
+    width: 100%;
+  }
   .header {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
     text-align: center;
     background-image: url("../img/background-header-small.jpg");
-  }
-  .header:after {
-    content: '';
-    display: block;
-    background: black;
-    opacity: 0.3;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
   }
   .header__description {
     width: 100%;
+    height: auto;
+    position: relative;
+    padding-bottom: 40px;
   }
   .section {
     -webkit-box-orient: vertical;
@@ -250,12 +255,9 @@ section h2::before {
     padding: 40px;
     text-align: center;
   }
-  .section h2::before {
-    width: 100%;
-  }
   .section__description {
     max-width: 100%;
-    padding: 40px 0;
+    padding: 20px 0;
   }
   .section__image {
     max-width: 80%;
@@ -265,7 +267,10 @@ section h2::before {
   }
   .section-2 .item {
     width: 49%;
-    padding: 0 5%;
+    padding: 0 2%;
+  }
+  .section-2 .item img {
+    width: 80px;
   }
 }
 /*# sourceMappingURL=style.css.map */
