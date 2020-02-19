@@ -40,13 +40,22 @@
 
 body {
   margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+header,
+section,
+footer {
+  box-sizing: border-box;
+  padding: 0 calc(50vw - 1170px / 2);
+  width: 100%;
 }
 
 h1 {
   font-family: 'Gotham Pro Light';
   text-transform: uppercase;
-  width: 550px;
-  z-index: 99;
+  font-size: 2.5em;
 
   span {
     font-family: 'Gotham Pro Bold';
@@ -55,8 +64,10 @@ h1 {
 
 h2 {
   font-family: 'Gotham Pro Light';
-  font-size: 2em;
+  max-width: 70%;
   margin: 0;
+  position: relative;
+  font-size: 2em;
 
   span {
     font-family: 'Gotham Pro Bold';
@@ -67,38 +78,6 @@ p {
   font-family: 'Open Sans Regular';
   z-index: 99;
   margin: 50px 0;
-}
-
-header,
-section,
-footer {
-  box-sizing: border-box;
-  padding: 0 calc(50vw - 1170px / 2);
-}
-
-section {
-  position: relative;
-  padding-top: 10%;
-  padding-bottom: 10%;
-  height: min-content;
-}
-
-.header {
-  display: flex;
-  flex-direction: column;
-  background-image: url('../img/background-header-large.jpg');
-  background-size: cover;
-  height: 985px;
-  background-repeat: no-repeat;
-  background-position: center;
-  color: white;
-}
-
-.logo {
-  display: block;
-  margin-top: 100px;
-  margin-bottom: 150px;
-  z-index: 99;
 }
 
 /* buttons */
@@ -116,114 +95,111 @@ button {
   z-index: 99;
 }
 
-/* sections */
-section:nth-child(2) {
-  height: 700px;
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  background-image: url('../img/background-header-large.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
 
-  h2 {
+  .logo {
+    display: block;
     width: 200px;
-    position: relative;
+    margin-top: 100px;
+    margin-bottom: 150px;
+    z-index: 99;
   }
 
-  h2::before {
-    content: 'for beginner traders';
-    color: #854399;
-    opacity: 0.5;
-    position: absolute;
-    top: -30px;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-  }
-
-  p {
-    width: 410px;
-  }
-
-  img {
-    position: absolute;
-    width: 500px;
-    top: 20%;
-    right: 20%;
+  &__description {
+    width: 550px;
+    height: 60%;
+    z-index: 99;
   }
 }
 
-section:nth-child(3) {
-  height: 700px;
+/* sections */
+.section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: max-content;
+  margin-bottom: 10px;
+  padding-top: 150px;
+  padding-bottom: 20px;
+
+  &__description {
+    max-width: 35%;
+  }
+
+  &__image {
+    max-width: 45%;
+  }
+}
+
+section h2::before {
+  color: #854399;
+  opacity: 0.5;
+  position: absolute;
+  top: -30px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.section-1 h2::before {
+  content: 'for beginner traders';
+}
+
+.section-3 h2::before {
+  content: 'gain trading experience';
+}
+
+.section-2 {
+  flex-direction: column;
   text-align: center;
 
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 100px;
-    margin-top: 100px;
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 30px;
+  }
 
-    div {
-      width: 175px;
-      p {
-        margin: 20px 0;
-      }
-    }
+  .item {
+    text-align: center;
+    width: 32%;
+    margin-bottom: 2%; /* (100-32*3)/2 */
+    background-color: #fff;
+    box-sizing: border-box;
   }
 }
 
-section:nth-child(4) {
-  height: 700px;
-  padding-bottom: 200px;
-
-  h2 {
-    width: 200px;
-    position: relative;
-  }
-
-  h2::before {
-    content: 'for beginner traders';
-    color: #854399;
-    opacity: 0.5;
-    position: absolute;
-    top: -30px;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-  }
-
-  p {
-    width: 410px;
-  }
-
-  img {
-    position: absolute;
-    width: 500px;
-    top: 20%;
-    right: 20%;
-  }
+.footer {
+  height: 200px;
 }
 
 @media (max-width: 1170px) {
   header,
-  section,
-  footer {
-    box-sizing: border-box;
-    padding-right: 10%;
+  section {
     padding-left: 10%;
+    padding-right: 10%;
   }
 
-  .header {
-    background-image: url('../img/background-header-medium.jpg');
-
-    h1 {
-      width: 100%;
-      max-width: 550px;
-    }
+  h2 {
+    min-width: 100%;
   }
 }
 
 @media (max-width: 600px) {
   .header {
-    background-image: url('../img/background-header-small.jpg');
-    justify-content: space-evenly;
+    align-items: center;
     text-align: center;
-    position: relative;
+    background-image: url('../img/background-header-small.jpg');
 
     &:after {
       content: '';
@@ -235,6 +211,40 @@ section:nth-child(4) {
       bottom: 0;
       left: 0;
       right: 0;
+    }
+
+    &__description {
+      width: 100%;
+    }
+  }
+
+  .section {
+    flex-direction: column;
+    padding: 40px;
+    text-align: center;
+
+    h2::before {
+      width: 100%;
+    }
+
+    &__description {
+      max-width: 100%;
+      padding: 40px 0;
+    }
+
+    &__image {
+      max-width: 80%;
+    }
+  }
+
+  .section-2 {
+    .container {
+      margin-top: 40px;
+    }
+
+    .item {
+      width: 49%;
+      padding: 0 5%;
     }
   }
 }
